@@ -507,7 +507,7 @@ a#primary-header-sale:hover, a#primary-header-sale:focus, a#primary-header-sale.
 
 
 
-			<div id="banners"><div><div><div class="banner member-price-banner green cols-row site-content cf"> <div class="col"> <button type="button" class="btn-close btn-primary">  </button> <strong>Welcome, Chris. Save on select hotels, simply because you are a member.</strong> </div> </div></div></div></div>
+			<div id="banners"><div><div><div class="banner member-price-banner green cols-row site-content cf"> <div class="col"> <button type="button" class="btn-close btn-primary">  </button> <strong>Currently viewing your itinerary offline. Please connect to a network to refresh.</strong> </div> </div></div></div></div>
             <div id="mainContent" class="site-content-wrap">
 <div id="airAttachContainer"> <span class="displayNone"></span> </div>
                 <div class="site-content cols-row cf" role="region">
@@ -610,6 +610,7 @@ a#primary-header-sale:hover, a#primary-header-sale:focus, a#primary-header-sale.
 
 <script>
     (function() {
+        return;
         if (!('serviceWorker' in navigator)) return;
 
         navigator.serviceWorker.register('service-worker.js').then(function (registration) {
