@@ -28,18 +28,26 @@ self.addEventListener('fetch', function (event) {
 
     event.respondWith(
 
-        // search cache
-        caches.match(event.request).then(function (response) {
-            // Assets from cache
-            if (response) {
-                return response;
-            }
-            // Get itinerary from network
-            // or fallback to cache
-            return fetch(event.request).catch(function() {
-                console.log('cannot connect');
-                return caches.match('/offline.html');
+        caches.open('web-directions-code-2015').then(function (cache) {
+
+            // search cache
+            cache.match(event.request).then(function (response) {
+                // First, serve from cache.
+                if (response) {
+                    return response;
+                }
+                // Attempt to get itinerary from network
+                // or fallback to cache
+                return fetch(event.request).then(function (response) {
+                    // if network
+                    // update offline.htm with response
+                    cache.put('/offline.html', response.clone());
+                    return response;
+                }).catch(function() {
+                    console.log('cannot connect');
+                    return caches.match('/offline.html');
+                });
             });
-        })
+        });
     );
 });
