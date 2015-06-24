@@ -5,7 +5,7 @@ if( 'function' === typeof importScripts) {
     importScripts('cache-polyfill.js');
 }
 
-var cacheKey = 'ws-code-2015-v5';
+var cacheKey = 'ws-code-2015-v6';
 
 // INSTALL
 
