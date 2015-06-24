@@ -615,6 +615,10 @@ a#primary-header-sale:hover, a#primary-header-sale:focus, a#primary-header-sale.
         navigator.serviceWorker.register('service-worker.js').then(function (registration) {
             console.log('Registration successful');
             console.log(registration.scope);
+            var oReq = new XMLHttpRequest();
+            oReq.onload = function() { console.log('Offline cache created'); };
+            oReq.open("get", "offline.html", true);
+            oReq.send();
         }).catch(function (error) {
             console.log('Registration failed');
             console.log(error);
