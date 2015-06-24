@@ -27,7 +27,7 @@ self.addEventListener('fetch', function (event) {
     console.log('Requested:', requestUrl);
 
     event.respondWith(
-        caches.open('web-directions-code-2015').then(function (cache) {
+        caches.open('ws-code-2015-v1').then(function (cache) {
 
             // search cache
             cache.match(event.request).then(function (response) {
