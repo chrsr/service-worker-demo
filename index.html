@@ -617,7 +617,7 @@ a#primary-header-sale:hover, a#primary-header-sale:focus, a#primary-header-sale.
             console.log(registration.scope);
             var oReq = new XMLHttpRequest();
             oReq.onload = function() { console.log('Offline cache created'); };
-            oReq.open("get", "offline.html", true);
+            oReq.open("get", "/service-worker-demo/offline.html", true);
             oReq.send();
         }).catch(function (error) {
             console.log('Registration failed');
