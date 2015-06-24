@@ -5,7 +5,7 @@ if( 'function' === typeof importScripts) {
     importScripts('cache-polyfill.js');
 }
 
-var cacheKey = 'ws-code-2015-v3';
+var cacheKey = 'ws-code-2015-v4';
 
 // INSTALL
 
@@ -13,7 +13,7 @@ self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open(cacheKey).then(function (cache) {
             return cache.addAll([
-                '/offline.html',
+                '/service-worker-demo/offline.html',
                 'styles.css',
                 'expedia.com.au.png',
                 'fourpoints.jpg'
@@ -42,7 +42,7 @@ self.addEventListener('fetch', function (event) {
             }).catch(function() {
                 // no connection
                 // fallback to message or previous versions?
-                return caches.match('/offline.html');
+                return caches.match('/service-worker-demo/offline.html');
             });
         })
     );
