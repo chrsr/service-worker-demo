@@ -42,6 +42,7 @@ self.addEventListener('fetch', function (event) {
             }).catch(function() {
                 // no connection
                 // fallback to message or previous versions?
+                console.log('Network failed');
                 return caches.match('/service-worker-demo/offline.html');
             });
         })
