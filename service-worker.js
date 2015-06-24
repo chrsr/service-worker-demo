@@ -27,7 +27,6 @@ self.addEventListener('fetch', function (event) {
     console.log('Requested:', requestUrl);
 
     event.respondWith(
-
         caches.open('web-directions-code-2015').then(function (cache) {
 
             // search cache
@@ -48,6 +47,6 @@ self.addEventListener('fetch', function (event) {
                     return caches.match('/offline.html');
                 });
             });
-        });
+        })
     );
 });
